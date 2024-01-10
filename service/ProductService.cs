@@ -1,3 +1,4 @@
+using InventoryManagementSystem.exception;
 using InventoryManagementSystem.model;
 using InventoryManagementSystem.repository;
 
@@ -16,7 +17,7 @@ public class ProductService : IProductService
     {
         return _repository.FindAll();
     }
-    
+
     public Product FindByName(string name)
     {
         return _repository.FindByName(name) ?? throw new InventoryException($"Product With Name {name} Not Found.");
@@ -33,6 +34,7 @@ public class ProductService : IProductService
         {
             throw new InventoryException($"Product With Name {product.Name} Not Found.");
         }
+
         _repository.Update(product);
     }
 
@@ -42,6 +44,7 @@ public class ProductService : IProductService
         {
             throw new InventoryException($"Product With Name {product.Name} Already Exists.");
         }
+
         _repository.Create(product);
     }
 }

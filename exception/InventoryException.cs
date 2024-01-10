@@ -1,12 +1,11 @@
-namespace InventoryManagementSystem;
+namespace InventoryManagementSystem.exception;
 
 public class InventoryException : Exception
 {
-    private readonly string _message;
+    public string Message { get; private set; }
 
     public InventoryException(string message) : base(message)
     {
-        this._message = message;
+        Message = message;
     }
-
 }

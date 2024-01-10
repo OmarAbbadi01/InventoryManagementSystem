@@ -1,20 +1,18 @@
 ﻿using InventoryManagementSystem.model;
 
-namespace InventoryManagementSystem.repository
+namespace InventoryManagementSystem.repository;
+
+public interface IProductRepository
 {
-    public interface IProductRepository
-    {
+    IEnumerable<Product> FindAll();
 
-        IEnumerable<Product> FindAll();
+    Product? FindByName(string name);
 
-        Product? FindByName(string name);
+    void DeleteByName(string name);
 
-        void DeleteByName(string name);
+    void Update(Product product);
 
-        void Update(Product product);
+    void Create(Product product);
 
-        void Create(Product product);
-
-        bool ExistsByName(string name);
-    }
+    bool ExistsByName(string name);
 }
