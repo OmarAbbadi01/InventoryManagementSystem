@@ -14,5 +14,7 @@ namespace InventoryManagementSystem.repository
         void Update(Product product);
 
         void Create(Product product);
+
+        bool ExistsByName(string name);
     }
 }

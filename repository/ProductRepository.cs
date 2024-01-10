@@ -29,11 +29,12 @@ namespace InventoryManagementSystem.repository
         public void Update(Product product)
         {
             var index = _products.FindIndex(product1 => product1.Name.Equals(product.Name));
-            if (index < 0)
-            {
-                throw new InvalidCastException($"Product with name {product.Name} does not exist.");
-            }
             _products[index] = product;
+        }
+
+        public bool ExistsByName(string name)
+        {
+            return this._products.Exists(product => product.Name.Equals(name));
         }
     }
 }
